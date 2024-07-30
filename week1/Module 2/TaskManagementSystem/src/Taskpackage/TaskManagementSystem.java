@@ -7,7 +7,6 @@ public class TaskManagementSystem {
         this.head = null;
     }
 
-    // Add a task to the linked list
     public void addTask(Task task) {
         Node newNode = new Node(task);
         if (head == null) {
@@ -21,7 +20,6 @@ public class TaskManagementSystem {
         }
     }
 
-    // Search for a task by ID
     public Task searchTask(int taskId) {
         Node current = head;
         while (current != null) {
@@ -33,7 +31,6 @@ public class TaskManagementSystem {
         return null;
     }
 
-    // Traverse and display all tasks
     public void traverseTasks() {
         Node current = head;
         while (current != null) {
@@ -42,7 +39,6 @@ public class TaskManagementSystem {
         }
     }
 
-    // Delete a task by ID
     public void deleteTask(int taskId) {
         if (head == null) {
             System.out.println("Task list is empty.");
