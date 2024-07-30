@@ -2,12 +2,10 @@ package commandpackage;
 
 public class CommandPatternExample {
 
-    // Command Interface
     interface Command {
         void execute();
     }
 
-    // Receiver Class
     static class Light {
         public void turnOn() {
             System.out.println("The light is on.");
@@ -18,7 +16,7 @@ public class CommandPatternExample {
         }
     }
 
-    // Concrete Command for turning the light on
+    // Concrete Command
     static class LightOnCommand implements Command {
         private Light light;
 
@@ -26,13 +24,12 @@ public class CommandPatternExample {
             this.light = light;
         }
 
-        @Override
         public void execute() {
             light.turnOn();
         }
     }
 
-    // Concrete Command for turning the light off
+    // Concrete Command 
     static class LightOffCommand implements Command {
         private Light light;
 
@@ -40,13 +37,11 @@ public class CommandPatternExample {
             this.light = light;
         }
 
-        @Override
         public void execute() {
             light.turnOff();
         }
     }
 
-    // Invoker Class
     static class RemoteControl {
         private Command command;
 
@@ -59,7 +54,7 @@ public class CommandPatternExample {
         }
     }
 
-    // Main Method for Testing
+    // Test
     public static void main(String[] args) {
         Light livingRoomLight = new Light();
 
@@ -68,11 +63,9 @@ public class CommandPatternExample {
 
         RemoteControl remote = new RemoteControl();
 
-        // Turn the light on
         remote.setCommand(lightOn);
         remote.pressButton();
 
-        // Turn the light off
         remote.setCommand(lightOff);
         remote.pressButton();
     }
