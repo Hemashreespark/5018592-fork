@@ -1,12 +1,7 @@
 package studentpackage;
 
-import studentpackage.MVCPatternExample.Student;
-import studentpackage.MVCPatternExample.StudentController;
-import studentpackage.MVCPatternExample.StudentView;
-
 public class MVCPatternExample {
 
-    // Model Class
     static class Student {
         private String id;
         private String name;
@@ -43,7 +38,6 @@ public class MVCPatternExample {
         }
     }
 
-    // View Class
     static class StudentView {
         public void displayStudentDetails(String studentName, String studentId, String studentGrade) {
             System.out.println("Student Details:");
@@ -53,7 +47,6 @@ public class MVCPatternExample {
         }
     }
 
-    // Controller Class
     static class StudentController {
         private Student model;
         private StudentView view;
@@ -92,25 +85,18 @@ public class MVCPatternExample {
         }
     }
 
-    // Main Method for Testing
-    public static void main(String[] args) {
-        // Create a student record
-        Student model = new Student("1", "John Doe", "A");
+    public static void main(String[] args) {d
+        Student model = new Student("1", "XXX", "O");
 
-        // Create a view to display student details
         StudentView view = new StudentView();
 
-        // Create a controller
         StudentController controller = new StudentController(model, view);
 
-        // Display initial student details
         controller.updateView();
 
-        // Update student details
-        controller.setStudentName("Jane Doe");
+        controller.setStudentName("YYY");
         controller.setStudentGrade("B");
 
-        // Display updated student details
         controller.updateView();
     }
 }

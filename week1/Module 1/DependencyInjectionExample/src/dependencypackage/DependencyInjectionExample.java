@@ -2,21 +2,17 @@ package dependencypackage;
 
 public class DependencyInjectionExample {
 
-    // Repository Interface
     interface CustomerRepository {
         Customer findCustomerById(String id);
     }
 
-    // Concrete Repository Implementation
     static class CustomerRepositoryImpl implements CustomerRepository {
         @Override
         public Customer findCustomerById(String id) {
-            // In a real application, this would involve database access
-            return new Customer(id, "John Doe");
+            return new Customer(id, "XXX");
         }
     }
 
-    // Customer Class
     static class Customer {
         private String id;
         private String name;
@@ -43,11 +39,9 @@ public class DependencyInjectionExample {
         }
     }
 
-    // Service Class
     static class CustomerService {
         private CustomerRepository customerRepository;
 
-        // Constructor Injection
         public CustomerService(CustomerRepository customerRepository) {
             this.customerRepository = customerRepository;
         }
@@ -57,18 +51,13 @@ public class DependencyInjectionExample {
         }
     }
 
-    // Main Method for Testing
     public static void main(String[] args) {
-        // Create a repository instance
         CustomerRepository customerRepository = new CustomerRepositoryImpl();
 
-        // Inject the repository into the service
         CustomerService customerService = new CustomerService(customerRepository);
 
-        // Use the service to find a customer
         Customer customer = customerService.getCustomerById("123");
 
-        // Display customer details
         System.out.println("Customer ID: " + customer.getId());
         System.out.println("Customer Name: " + customer.getName());
     }
