@@ -10,10 +10,8 @@ public class RealImage implements Image {
 
     private void loadImageFromDisk() {
         System.out.println("Loading " + fileName);
-        // Simulate loading from a remote server
     }
 
-    @Override
     public void display() {
         System.out.println("Displaying " + fileName);
     }
