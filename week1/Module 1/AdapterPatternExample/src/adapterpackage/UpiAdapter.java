@@ -7,7 +7,6 @@ public class UpiAdapter implements PaymentProcessor {
         this.upi = upi;
     }
 
-    @Override
     public void processPayment(double amount) {
         upi.makePayment(amount);
     }
