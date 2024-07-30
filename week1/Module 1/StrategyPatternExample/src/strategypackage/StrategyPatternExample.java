@@ -2,12 +2,11 @@ package strategypackage;
 
 public class StrategyPatternExample {
 
-    // Strategy Interface
     interface PaymentStrategy {
         void pay(double amount);
     }
 
-    // Concrete Strategy for Credit Card Payment
+    // Concrete Strategy 
     static class CreditCardPayment implements PaymentStrategy {
         private String cardNumber;
         private String cardHolder;
@@ -21,13 +20,12 @@ public class StrategyPatternExample {
             this.expiryDate = expiryDate;
         }
 
-        @Override
         public void pay(double amount) {
             System.out.println("Paid " + amount + " using Credit Card.");
         }
     }
 
-    // Concrete Strategy for PayPal Payment
+    // Concrete Strategy
     static class PayPalPayment implements PaymentStrategy {
         private String email;
         private String password;
@@ -37,13 +35,11 @@ public class StrategyPatternExample {
             this.password = password;
         }
 
-        @Override
         public void pay(double amount) {
             System.out.println("Paid " + amount + " using PayPal.");
         }
     }
 
-    // Context Class
     static class PaymentContext {
         private PaymentStrategy paymentStrategy;
 
@@ -60,7 +56,6 @@ public class StrategyPatternExample {
         }
     }
 
-    // Main Method for Testing
     public static void main(String[] args) {
         PaymentContext paymentContext = new PaymentContext();
 
